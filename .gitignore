@@ -13,3 +13,9 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+public
+src
+.vscode
+package.json
+README.md
