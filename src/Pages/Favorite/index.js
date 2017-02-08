@@ -19,7 +19,7 @@ class FavoritePage extends Component {
             secondaryText={<p className="price">रू.   {item['औसत']} प्रति {item['ईकाइ']}</p>} />) }
           </List>
         </div>
-        : <h3>हैट !! मन्पर्ने सुची खाली पो छ त !</h3> }
+        : <h3>हैट !! मनपर्ने सूची त खाली पो छ त !</h3> }
       </div>
     )
   }
