@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { List, ListItem } from 'material-ui/List';
-
-import '../../App.css';
+import React, { Component } from 'react'
+import { List, ListItem } from 'material-ui/List'
 
 class FavoritePage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
@@ -23,8 +21,8 @@ class FavoritePage extends Component {
         </div>
         : <h3>हैट !! मन्पर्ने सुची खाली पो छ त !</h3> }
       </div>
-    );
+    )
   }
 }
 
-export default FavoritePage;
+export default FavoritePage
