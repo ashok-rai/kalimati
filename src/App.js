@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import { grey900, grey400 } from 'material-ui/styles/colors'
+import { green700, deepOrange500 } from 'material-ui/styles/colors'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import AppBar from 'material-ui/AppBar'
 import { Tabs, Tab } from 'material-ui/Tabs'
@@ -16,8 +16,8 @@ injectTapEventPlugin()
 
 const muiTheme = getMuiTheme({
   palette: {
-    primary1Color: grey900,
-    accent1Color: grey400
+    primary1Color: green700,
+    accent1Color: deepOrange500
   }
 })
 
@@ -58,7 +58,7 @@ class App extends Component {
   }
 
   componentWillMount () {
-    if (this.state.dateEn && this.isToday(this.state.dateEn)) return
+    if (this.state.dateEn && Math.abs((new Date() - new Date(this.state.dateEn))) / 36e5 < 2) return
 
     let data = []
     fetch('https://cors-anywhere.herokuapp.com/kalimatimarket.com.np/priceinfo/dlypricebulletin', {
@@ -89,13 +89,11 @@ class App extends Component {
         }).splice(3)
 
         this.updateData(data)
-        this.updateDateEn(Date.now())
+        this.updateDateEn(new Date())
         data = []
       })
       .catch(console.error)
   }
-
-  isToday = date => new Date(date).setHours(0,0,0,0) === new Date().setHours(0,0,0,0)
 
   handleChange = (value) => {
     this.setState({
@@ -109,7 +107,10 @@ class App extends Component {
         <div>
           <AppBar
           className="appbar-bg"
-          title="कालीमाटी"
+          title={ <div className="appbar-title">
+            <span>कालीमाटी</span>
+            <span className="date-np">मिति: {this.state.dateNp}</span>
+            </div> }
           showMenuIconButton={false}
           zDepth={0}
           />

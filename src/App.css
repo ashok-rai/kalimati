@@ -15,11 +15,11 @@
   line-height: 1.4em !important;
 }
 
-.goto-top {
-  margin: 0;
-  top: auto;
-  right: 20;
-  bottom: 20;
-  left: auto;
-  position: fixed;
+.appbar-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.appbar-title .date-np {
+  font-size: 0.5em;
 }
