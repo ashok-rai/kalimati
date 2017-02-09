@@ -74,8 +74,7 @@ class App extends Component {
           innerHTML: html
         }).querySelectorAll('table')[1].rows]
 
-        this.updateDateNp(tableRows[1].cells[0].innerText.trim())
-
+        let dateNp = tableRows[1].cells[0].innerText.trim()
         let headers = [...tableRows[2].cells].map(td => td.innerText.trim())
 
         data = tableRows.map((row, i) => {
@@ -88,9 +87,12 @@ class App extends Component {
           }
         }).splice(3)
 
-        this.updateData(data)
-        this.updateDateEn(new Date())
-        data = []
+        if (data.length) {
+          this.updateData(data)
+          this.updateDateNp(dateNp)
+          this.updateDateEn(new Date())
+          data = []
+        }
       })
       .catch(console.error)
   }
