@@ -68,7 +68,7 @@ class App extends Component {
           'X-Requested-With': 'XMLHttpRequest',
           'Origin': 'http://kalimatimarket.gov.np'
         },
-        body: 'cdate=&pricetype=R'
+        body: `cdate=${getFormattedDate(new Date())}&pricetype=R`
       })
       .then(res => res.text())
       .then(html => {
@@ -137,6 +137,16 @@ class App extends Component {
       </MuiThemeProvider>
     )
   }
+}
+
+function getFormattedDate (date) {
+  let month = (1 + date.getMonth()).toString()
+  month = month.length > 1 ? month : '0' + month
+
+  let day = date.getDate().toString()
+  day = day.length > 1 ? day : '0' + day
+
+  return month + '/' + day + '/' + date.getFullYear()
 }
 
 export default App
