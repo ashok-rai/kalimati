@@ -64,7 +64,9 @@ class App extends Component {
     fetch('https://cors-anywhere.herokuapp.com/kalimatimarket.com.np/priceinfo/dlypricebulletin', {
         method: 'post',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Origin': 'http://kalimatimarket.gov.np'
         },
         body: 'cdate=&pricetype=R'
       })
